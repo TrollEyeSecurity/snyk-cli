@@ -9,4 +9,4 @@ RUN apt update && apt dist-upgrade -y && apt install curl -y && \
   mv ./snyk /usr/local/bin/ && \
   id -u ccscanner &>/dev/null || useradd ccscanner --system --shell=/usr/sbin/nologin --home-dir=/app && \
   chown 999:999 -R /app
-USER ccscanner
+USER 999
