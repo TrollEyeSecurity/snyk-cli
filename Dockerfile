@@ -8,6 +8,5 @@ RUN apt update && apt dist-upgrade -y && apt install curl -y && \
   chmod +x ./snyk && \
   mv ./snyk /usr/local/bin/ && \
   id -u ccscanner &>/dev/null || useradd ccscanner --system --shell=/usr/sbin/nologin --home-dir=/app && \
-  mkdir /app && \
   chown ccscanner:ccscanner -R /app/
 USER ccscanner
