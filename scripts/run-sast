@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-export PATH=$PATH:/usr/local/go/bin
+
+case "$TECH" in
+  go)
+    export PATH=$PATH:/usr/local/go/bin
+    snyk ignore --file-path=go/
+    ;;
+esac
 
 git clone --single-branch --branch "$BRANCH" "$REPOURL"
 
 snyk auth "$SNYK_API_KEY"
-snyk code test --all-projects --org="$SNYK_ORG_ID" --json
+snyk code test --all-projects --org="$SNYK_ORG_ID" --json-file-output=/app/sast-results.json
