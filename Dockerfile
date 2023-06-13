@@ -5,7 +5,7 @@ ENV TZ=Us/Eastern
 ENV DEBIAN_FRONTEND=noninteractive
 COPY scripts scripts/
 RUN apt update && apt dist-upgrade -y && \
-    apt install wget git python3 -y && \
+    apt install wget git python3 python3-pip -y && \
     wget https://static.snyk.io/cli/latest/snyk-linux -O snyk && \
     chmod +x ./snyk && \
     mv ./snyk /usr/local/bin/ && \
