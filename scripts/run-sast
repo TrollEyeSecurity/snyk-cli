@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+git clone --single-branch --branch "$BRANCH" "$REPOURL"
+
+snyk auth "$SNYK_API_KEY"
+snyk code test --all-projects --org="$SNYK_ORG_ID" --json
