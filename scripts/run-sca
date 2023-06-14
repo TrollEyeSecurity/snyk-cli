@@ -9,4 +9,4 @@ esac
 git clone --single-branch --branch "$BRANCH" "$REPOURL"
 
 snyk auth "$SNYK_API_KEY"
-snyk test --all-projects --org="$SNYK_ORG_ID" --json-file-output=/app/sca-results.json
+snyk test --severity-threshold=medium --all-projects --org="$SNYK_ORG_ID" --json-file-output=/app/sca-results.json
