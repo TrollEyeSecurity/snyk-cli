@@ -7,9 +7,9 @@ COPY scripts scripts/
 RUN apt update && apt dist-upgrade -y && \
     apt install wget git python3 python3-pip make dotnet-sdk-7.0 nodejs npm yarnpkg pipenv ruby ruby-dev maven gradle libpq-dev -y && \
     gem install bundler && \
-    wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz  && \
-    rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz && \
-    rm -rf go1.20.5.linux-amd64.tar.gz && \
+    wget https://go.dev/dl/go1.23.1.linux-"$(dpkg --print-architecture)".tar.gz  && \
+    rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.1.linux-"$(dpkg --print-architecture)".tar.gz && \
+    rm -rf go1.23.1.linux-"$(dpkg --print-architecture)".tar.gz && \
     wget https://static.snyk.io/cli/latest/snyk-linux -O snyk && \
     chmod +x ./snyk && \
     mv ./snyk /usr/local/bin/ && \
