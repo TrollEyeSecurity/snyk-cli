@@ -14,16 +14,12 @@ RUN apt update && apt dist-upgrade -y && \
     chown ccscanner:ccscanner -R /app
 RUN if [ "$(dpkg --print-architecture)" = "amd64" ]; then \
         echo "Building for amd64 architecture"; \
-        wget https://static.snyk.io/cli/latest/snyk-linux-arm64 -O snyk; \
+        wget https://static.snyk.io/cli/latest/snyk-linux -O snyk; \
     elif [ "$(dpkg --print-architecture)" = "arm64" ]; then \
         echo "Building for arm64 architecture"; \
-        wget https://static.snyk.io/cli/latest/snyk-linux -O snyk; \
+        wget https://static.snyk.io/cli/latest/snyk-linux-arm64 -O snyk; \
     else \
         echo "Unsupported architecture"; \
         exit 1; \
-    fi
-#RUN echo "checking architecture" ; \
-#    [[ "$(dpkg --print-architecture)" == "arm64" ]] && wget https://static.snyk.io/cli/latest/snyk-linux-arm64 -O snyk; \
-#    [[ "$(dpkg --print-architecture)" == "amd64" ]] && wget https://static.snyk.io/cli/latest/snyk-linux -O snyk; \
-#    chmod +x ./snyk && mv ./snyk /usr/local/bin/
+    fi &&  chmod +x ./snyk && mv ./snyk /usr/local/bin/
 USER ccscanner
