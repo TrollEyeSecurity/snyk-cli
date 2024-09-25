@@ -16,6 +16,6 @@ RUN if [ "$(dpkg --print-architecture)" == "arm64" ]; \
       then wget https://static.snyk.io/cli/latest/snyk-linux-arm64 -O snyk; \
     elif [ "$(dpkg --print-architecture)" == "amd64" ]; \
       then wget https://static.snyk.io/cli/latest/snyk-linux -O snyk; \
-    fi &&
+    fi
     #chmod +x ./snyk && mv ./snyk /usr/local/bin/
 USER ccscanner
