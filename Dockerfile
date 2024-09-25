@@ -21,5 +21,5 @@ RUN if [ "$(dpkg --print-architecture)" = "amd64" ]; then \
     else \
         echo "Unsupported architecture"; \
         exit 1; \
-    fi &&  chmod +x ./snyk && mv ./snyk /usr/local/bin/
+    fi && chmod +x ./snyk && mv ./snyk /usr/local/bin/
 USER ccscanner
